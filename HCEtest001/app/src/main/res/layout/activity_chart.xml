@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChartActivity">
+
+
+
+    <LinearLayout
+        android:id="@+id/pieLayout"
+        android:layout_width="match_parent"
+        android:layout_height="512dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <org.eazegraph.lib.charts.PieChart
+            android:id="@+id/pieChart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:padding="6dp" />
+        <org.eazegraph.lib.charts.BarChart
+            android:id="@+id/barChart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:padding="6dp" />
+    </LinearLayout>
+
+    <!--button bar-->
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0">
+        <Button
+            android:id="@+id/homeBtn"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:text="@string/homeBtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+        <Button
+            android:id="@+id/payBtn"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:text="@string/payBtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/chartBtn"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:text="@string/chartBtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:backgroundTint="@color/holo_blue_dark"
+            android:textColor="@color/black"
+            android:clickable="false"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
