@@ -1,10 +1,15 @@
 package com.example.filewriterreader;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -31,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "FileActivity";
 
-    Button writeBtn, readBtn, pageBtn;
+    Button writePrivateBtn, writePublicBtn, readPrivateBtn, readPublicBtn, pageBtn;
     EditText writeText;
     TextView readText;
 
@@ -43,26 +48,63 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        writeBtn = (Button) findViewById(R.id.writeBtn);
-        readBtn = (Button) findViewById(R.id.readBtn);
+        writePrivateBtn = (Button) findViewById(R.id.writePrivateBtn);
+        writePublicBtn = (Button) findViewById(R.id.writePublicBtn);
+        readPrivateBtn = (Button) findViewById(R.id.readPrivateBtn);
+        readPublicBtn = (Button) findViewById(R.id.readPublicBtn);
+
         pageBtn = (Button) findViewById(R.id.pageBtn);
         writeText = (EditText) findViewById(R.id.writeText);
         readText = (TextView) findViewById(R.id.readText);
-
+        //File file = Environment.getExternalStoragePublicDirectory(Environment.getStorageDirectory())
         Context context = getApplication();
-        fileDirectory = context.getDataDir();
-
-        writeBtn.setOnClickListener(new View.OnClickListener() {
+        //fileDirectory = context.getDataDir();
+        //fileDirectory = getExternalFilesDir("txt");
+        writePrivateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inputFile();
+                fileDirectory = getExternalFilesDir("txt");
+                inputFilePrivate();
             }
         });
 
-        readBtn.setOnClickListener(new View.OnClickListener() {
+        writePublicBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                outputFile();
+                if (ContextCompat.checkSelfPermission(MainActivity.this,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                            23);
+                }
+                fileDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+                inputFilePublic();
+            }
+        });
+
+        readPrivateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fileDirectory = getExternalFilesDir("txt");
+                outputFilePrivate();
+            }
+        });
+
+        readPublicBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(MainActivity.this,
+                        Manifest.permission.READ_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                            24);
+                }
+                fileDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+                outputFilePublic();
             }
         });
 
@@ -75,21 +117,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    void inputFile() {
-//        File file = new File(fileDirectory+"/"+fileName);
-//        Log.v(TAG, file.getAbsolutePath());
-//        Log.v(TAG, "write file");
-//        FileWriter fileWriter = new FileWriter(file);
-//        try {
-//            String input = writeText.getText().toString();
-//            if(writeText.length()>0)
-//                writeText.getText().clear();
-//            fileWriter.write(input);
-//            fileWriter.flush();
-//            fileWriter.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+    void inputFilePrivate() {
         String receiveString = "";
         receiveString = writeText.getText().toString();
         Log.v(TAG, receiveString);
@@ -117,7 +145,35 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void outputFile() {
+    void inputFilePublic() {
+        String receiveString = "";
+        receiveString = writeText.getText().toString();
+        Log.v(TAG, receiveString);
+        try{
+            File file = new File(fileDirectory+"/"+fileName);
+            FileOutputStream fileWriter = new FileOutputStream(file);
+            Log.v(TAG,"write file");
+
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileWriter);
+
+            outputStreamWriter.write(receiveString);
+
+            outputStreamWriter.flush();
+//            fileWriter.flush();
+            fileWriter.close();
+
+            writeText.setText("");
+
+        } catch (FileNotFoundException e) {
+            Log.e("login activity", "File not found: " + e.toString());
+            e.printStackTrace();
+        } catch (IOException e) {
+            Log.e("login activity", "Can not read file: " + e.toString());
+            e.printStackTrace();
+        }
+    }
+
+    void outputFilePrivate() {
 
 //        FileReader fileReader = new FileReader(fileDirectory+"/"+fileName);
         String ret = "";
@@ -146,22 +202,35 @@ public class MainActivity extends AppCompatActivity {
             Log.e("login activity", "Can not read file: " + e.toString());
             e.printStackTrace();
         }
+    }
 
-//        try {
-//            int i;
-//            char[] str = new char[0];
-//            String output = new String();
-//            readText.setText("");
-//
-//            while((i=fileReader.read())!=-1) {
-//                fileReader.read(str);
-//                output = output + str.toString();
-//            }
-//            Log.v(TAG, output);
-//            readText.setText(output);
-//            fileReader.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+    void outputFilePublic() {
+//        FileReader fileReader = new FileReader(fileDirectory+"/"+fileName);
+        String ret = "";
+        try{
+            File file = new File(fileDirectory+"/"+fileName);
+            FileInputStream fileReader = new FileInputStream(file);
+            Log.v(TAG,"read file");
+            if ( fileReader != null ) {
+                InputStreamReader inputStreamReader = new InputStreamReader(fileReader);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString = "";
+                StringBuilder stringBuilder = new StringBuilder();
+
+                while ( (receiveString = bufferedReader.readLine()) != null ) {
+                    stringBuilder.append("\n").append(receiveString);
+                }
+
+                fileReader.close();
+                ret = stringBuilder.toString();
+                readText.setText(ret);
+            }
+        } catch (FileNotFoundException e) {
+            Log.e("login activity", "File not found: " + e.toString());
+            e.printStackTrace();
+        } catch (IOException e) {
+            Log.e("login activity", "Can not read file: " + e.toString());
+            e.printStackTrace();
+        }
     }
 }
