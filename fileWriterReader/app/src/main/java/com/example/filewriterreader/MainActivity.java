@@ -8,6 +8,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.UrlQuerySanitizer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -17,28 +18,41 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.nio.charset.Charset;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "FileActivity";
+    String[] permissionCode = new String[] {
+            Manifest.permission.INTERNET,
+            Manifest.permission.CAMERA,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.READ_SMS,
+            Manifest.permission.SEND_SMS,
+            Manifest.permission.RECEIVE_SMS };
 
-    Button writePrivateBtn, writePublicBtn, readPrivateBtn, readPublicBtn, pageBtn;
+    Button mainBtn, databaseBtn, cameraBtn;
+
+    Button writePrivateBtn, writePublicBtn, readPrivateBtn, readPublicBtn;
     EditText writeText;
     TextView readText;
+
+    Button dlJSONBtn;
+    String weatherURL = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-007?Authorization=CWB-A78BDE64-AEBA-4C17-BB26-DF01D492EF41&format=JSON";
+    URL url;
 
     File fileDirectory;
     String fileName = "text.txt";
@@ -47,19 +61,42 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setPermission();
+
+        mainBtn = (Button) findViewById(R.id.mainBtn);
+        databaseBtn = (Button) findViewById(R.id.databaseBtn);
+        cameraBtn = (Button) findViewById(R.id.cameraBtn);
 
         writePrivateBtn = (Button) findViewById(R.id.writePrivateBtn);
         writePublicBtn = (Button) findViewById(R.id.writePublicBtn);
         readPrivateBtn = (Button) findViewById(R.id.readPrivateBtn);
         readPublicBtn = (Button) findViewById(R.id.readPublicBtn);
 
-        pageBtn = (Button) findViewById(R.id.pageBtn);
         writeText = (EditText) findViewById(R.id.writeText);
         readText = (TextView) findViewById(R.id.readText);
         //File file = Environment.getExternalStoragePublicDirectory(Environment.getStorageDirectory())
         Context context = getApplication();
         //fileDirectory = context.getDataDir();
         //fileDirectory = getExternalFilesDir("txt");
+
+        dlJSONBtn = (Button) findViewById(R.id.dlJSONBtn);
+
+        databaseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,DatabaseActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        cameraBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,CameraActivity.class);
+                startActivity(intent);
+            }
+        });
+
         writePrivateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,11 +145,59 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        pageBtn.setOnClickListener(new View.OnClickListener() {
+        dlJSONBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,DatabaseActivity.class);
-                startActivity(intent);
+                new Thread(()-> {
+                    try {
+                        fileDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+                        if (!fileDirectory.exists()) {
+                            Log.v(TAG,"create directory");
+                            fileDirectory.mkdirs();
+                        }
+
+                        //String fileName = "test.json";
+                        File file = new File(fileDirectory + "/" + fileName);
+                        Log.v(TAG,"create new file");
+
+                        Log.v(TAG,file.getAbsolutePath());
+
+                        FileOutputStream fileWriter = new FileOutputStream(file);
+                        Log.v(TAG,"write file");
+
+                        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileWriter);
+
+                        //outputStreamWriter.write("");
+                        Log.v(TAG,"create new file writer");
+
+                        URL url = new URL(weatherURL);
+                        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                        InputStream is = connection.getInputStream();
+                        BufferedReader in = new BufferedReader(new InputStreamReader(is));
+
+                        String line = in.readLine();
+                        StringBuffer json = new StringBuffer();
+
+                        while (line != null) {
+                            json.append(line);
+                            //fileWriter.write(line);
+                            //fileWriter.flush();
+                            outputStreamWriter.write(line);
+                            outputStreamWriter.flush();
+                            line = in.readLine();
+                        }
+                        //fileWriter.close();
+                        outputStreamWriter.close();
+
+                        //Log.v(TAG,""+json);
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }).start();
+
+
             }
         });
     }
@@ -233,4 +318,17 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    public void setPermission() {
+        for(int i = 0; i < 7; i++) {
+            if(ContextCompat.checkSelfPermission(this,
+                    permissionCode[i]) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this,
+                        permissionCode,
+                        24);
+                break;
+            }
+        }
+    }
+
 }
