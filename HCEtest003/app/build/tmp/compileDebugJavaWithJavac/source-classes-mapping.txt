@@ -1,0 +1,4 @@
+com/example/hcetest003/BuildConfig.java
+ com.example.hcetest003.BuildConfig
+com/example/hcetest003/MainActivity.java
+ com.example.hcetest003.MainActivity
