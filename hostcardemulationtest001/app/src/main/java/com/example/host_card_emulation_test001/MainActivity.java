@@ -30,6 +30,7 @@ public class MainActivity extends Activity implements OnMessageReceived, ReaderC
         super.onResume();
         nfcAdapter.enableReaderMode(this, this, NfcAdapter.FLAG_READER_NFC_A | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK,
                 null);
+
     }
 
     @Override

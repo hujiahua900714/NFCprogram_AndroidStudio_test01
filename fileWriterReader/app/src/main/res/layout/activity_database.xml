@@ -13,7 +13,7 @@
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
         <TextView
-            android:text="Insert Data"
+            android:text="@string/insert_data"
             android:textSize="32dp"
             android:textColor="@color/black"
             android:layout_width="match_parent"
@@ -24,13 +24,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="account"
+                android:text="goods"
                 android:textSize="24dp"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <EditText
-                android:id="@+id/accountInput"
+                android:id="@+id/goodsInput"
                 android:layout_marginLeft="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -41,13 +41,30 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="password"
+                android:text="category"
                 android:textSize="24dp"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <EditText
-                android:id="@+id/passwordInput"
+                android:id="@+id/categoryInput"
+                android:layout_marginLeft="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="price"
+                android:textSize="24dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/priceInput"
                 android:layout_marginLeft="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -65,18 +82,21 @@
             android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
         <ScrollView
             android:layout_margin="8dp"
             android:layout_width="match_parent"
             android:layout_height="108dp">
-            <TextView
-                android:id="@+id/outputText"
-                android:text="12\n12\n12\n12\n12\n12\n12\n12\n"
-                android:textColor="@color/black"
-                android:layout_margin="8dp"
+            <LinearLayout
+                android:id="@+id/dataView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            </LinearLayout>
+
         </ScrollView>
+
+
         <TextView
             android:text="Delete by _id:"
             android:textSize="32dp"
@@ -107,11 +127,32 @@
             android:layout_margin="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-        <Button
-            android:text="chnage page to Main Page"
-            android:layout_margin="16dp"
-            android:id="@+id/pageBtn"
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_margin="12dp"
+                android:text="main"
+                android:id="@+id/mainBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:layout_margin="12dp"
+                android:text="database"
+                android:id="@+id/databaseBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:backgroundTint="@color/holo_blue_dark"
+                android:textColor="@color/black"/>
+            <Button
+                android:layout_margin="12dp"
+                android:text="camera"
+                android:id="@+id/cameraBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

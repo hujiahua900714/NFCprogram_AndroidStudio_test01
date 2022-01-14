@@ -1,0 +1,6 @@
+com/example/hcetest003/MyHostApduService.java
+ com.example.hcetest003.MyHostApduService
+com/example/hcetest003/BuildConfig.java
+ com.example.hcetest003.BuildConfig
+com/example/hcetest003/MainActivity.java
+ com.example.hcetest003.MainActivity

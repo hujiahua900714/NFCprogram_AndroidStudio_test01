@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/code/AndroidStudio/NFC/fileWriterReader/app/src/main/res/layout/activity_database.xml" value="0.4122938530734633" />
+        <entry key="..\:/code/AndroidStudio/NFC/fileWriterReader/app/src/main/res/layout/activity_camera.xml" value="0.2835990888382688" />
+        <entry key="..\:/code/AndroidStudio/NFC/fileWriterReader/app/src/main/res/layout/activity_database.xml" value="0.33694181326116374" />
         <entry key="..\:/code/AndroidStudio/NFC/fileWriterReader/app/src/main/res/layout/activity_main.xml" value="0.3619791666666667" />
       </map>
     </option>

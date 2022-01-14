@@ -18,7 +18,6 @@
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/intro" >
-    </ListView>
+        android:layout_below="@+id/intro"></ListView>
 
 </RelativeLayout>

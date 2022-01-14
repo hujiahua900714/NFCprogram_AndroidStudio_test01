@@ -26,13 +26,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp" />
-        <Button
-            android:id="@+id/writeBtn"
-            android:text="write"
-            android:textColor="@color/white"
-            android:layout_width="180dp"
-            android:layout_height="match_parent"
-            android:layout_margin="16dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+            <Button
+                android:id="@+id/writePrivateBtn"
+                android:text="write private"
+                android:textColor="@color/white"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp" />
+            <Button
+                android:id="@+id/writePublicBtn"
+                android:text="write public"
+                android:textColor="@color/white"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp" />
+        </LinearLayout>
         <TextView
             android:text="Read and output:"
             android:textColor="@color/black"
@@ -40,27 +53,80 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"/>
-        <TextView
-            android:id="@+id/readText"
-            android:text="none"
-            android:textColor="@color/black"
-            android:textSize="24dp"
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:padding="8dp">
+            <TextView
+                android:id="@+id/readText"
+                android:text="none"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"/>
+        </ScrollView>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"/>
-        <Button
-            android:id="@+id/readBtn"
-            android:text="read"
-            android:textColor="@color/white"
-            android:layout_width="180dp"
-            android:layout_height="match_parent"
-            android:layout_margin="16dp" />
-        <Button
-            android:layout_margin="16dp"
-            android:text="change to database"
-            android:id="@+id/pageBtn"
+            android:orientation="horizontal"
+            android:padding="16dp">
+            <Button
+                android:id="@+id/readPrivateBtn"
+                android:text="read private"
+                android:textColor="@color/white"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp" />
+            <Button
+                android:id="@+id/readPublicBtn"
+                android:text="read public"
+                android:textColor="@color/white"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+            <Button
+                android:id="@+id/dlJSONBtn"
+                android:text="download JSON"
+                android:textColor="@color/white"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:layout_margin="12dp"
+                android:text="main"
+                android:id="@+id/mainBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:backgroundTint="@color/holo_blue_dark"
+                android:textColor="@color/black"/>
+            <Button
+                android:layout_margin="12dp"
+                android:text="database"
+                android:id="@+id/databaseBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:layout_margin="12dp"
+                android:text="camera"
+                android:id="@+id/cameraBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
     </LinearLayout>
 
 
