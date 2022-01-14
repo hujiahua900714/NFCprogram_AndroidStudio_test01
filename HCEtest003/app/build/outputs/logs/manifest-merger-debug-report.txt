@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-23:12
+ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-33:12
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\hujia\.gradle\caches\transforms-3\1508bc0f4d67cb1fb46dec23183d0585\transformed\material-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.2] C:\Users\hujia\.gradle\caches\transforms-3\66bbb9fe8c9e1863a78a4ee4625746ef\transformed\constraintlayout-2.1.2\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.4.0] C:\Users\hujia\.gradle\caches\transforms-3\46d15f5c58a469270eeba15db4463d05\transformed\appcompat-1.4.0\AndroidManifest.xml:17:1-24:12
@@ -43,25 +43,29 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\hujia\.gradle\ca
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\hujia\.gradle\caches\transforms-3\30559646bdc9f3290097ba378eb99203\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\hujia\.gradle\caches\transforms-3\b618f929228947d1fd03b4a852d85b00\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\hujia\.gradle\caches\transforms-3\b521f32a8ca2115704fce9eaa65230c1\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-33:12
 	package
 		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:3:5-37
 		INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml
 		INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml
-		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-23:12
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-33:12
 		INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml
-		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-23:12
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:1-33:12
 		INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.NFC
+ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:5:5-62
+	android:name
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:5:22-59
 application
-ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:5:5-21:19
+ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:7:5-31:19
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\hujia\.gradle\caches\transforms-3\1508bc0f4d67cb1fb46dec23183d0585\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\hujia\.gradle\caches\transforms-3\1508bc0f4d67cb1fb46dec23183d0585\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.2] C:\Users\hujia\.gradle\caches\transforms-3\66bbb9fe8c9e1863a78a4ee4625746ef\transformed\constraintlayout-2.1.2\AndroidManifest.xml:9:5-20
@@ -79,33 +83,53 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\hujia\.gradle\cach
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.7.0] C:\Users\hujia\.gradle\caches\transforms-3\9339927e08badd09bc5459e4ba900d5f\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:12:9-35
 	android:label
-		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:8:9-41
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:10:9-41
 	android:roundIcon
-		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:9:9-54
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:11:9-54
 	android:icon
-		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:9:9-43
 	android:allowBackup
-		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:6:9-35
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:11:9-48
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:13:9-48
 activity#com.example.hcetest003.MainActivity
-ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:12:9-20:20
+ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:14:9-22:20
 	android:exported
-		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:14:13-36
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:16:13-36
 	android:name
-		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:13:13-41
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:15:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:15:13-19:29
+ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:17:13-21:29
 action#android.intent.action.MAIN
-ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:16:17-69
+ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:18:17-69
 	android:name
-		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:16:25-66
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:18:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:18:17-77
+ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:20:17-77
 	android:name
-		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:18:27-74
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:20:27-74
+service#com.example.hcetest003.MyHostApduService
+ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:23:9-30:19
+	android:exported
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:23:52-75
+	android:permission
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:24:13-69
+	android:name
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:23:18-51
+intent-filter#action:name:android.nfc.cardemulation.action.HOST_APDU_SERVICE
+ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:25:13-27:29
+action#android.nfc.cardemulation.action.HOST_APDU_SERVICE
+ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:26:17-92
+	android:name
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:26:25-90
+meta-data#android.nfc.cardemulation.host_apdu_service
+ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:28:13-29:54
+	android:resource
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:29:17-52
+	android:name
+		ADDED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml:28:24-82
 uses-sdk
 INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\code\AndroidStudio\NFC\HCEtest003\app\src\main\AndroidManifest.xml
